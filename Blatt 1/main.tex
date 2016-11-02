@@ -72,9 +72,53 @@ bei den Auswertung der Formeln aus \ref{sec:b} und \ref{sec:c} macht.
 Die berechneten Werte springen nach $x=10^{-15}$ auf $0$ folglich liefet die
 numerische Auswertung das falsche Ergebnis. Dies liegt daran, dass
 der Term $9-x$ bei Zahlen die kleiner sind als $10^{-15}$ auf $9$ gerundet wird.
-Mit diesem Ergebnis wird der Zähler $0$ und damit auch die ganze Funktion.        
+Mit diesem Ergebnis wird der Zähler $0$ und damit auch die ganze Funktion.
 
 \section{Aufgabe 3}
+Beide Funktionen sind algebraisch konstant $\frac{2}{3}$.
+Eine Abweichung von mehr als $1\%$
+liegt über einem beträgsmäßigen Fehler von ungefähr
+\begin{align*}
+  0,0067
+\end{align*}
+vor.
+
+\subsection{a)/c)}
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{plot 3a)log.pdf}
+  \caption{Betragsmäßige Abweichung von der Funktion $f(x)$.}
+  \label{fig:3a}
+\end{figure}
+\FloatBarrier
+\begin{align*}
+\intertext{\Rightarrow In einem Bereich von:}
+-4\cdot10^{4}\leq x \leq 4\cdot10^{4}
+\intertext{Weicht das numerische Ergebnis vom Algebraischen um nicht mehr als $1\%$ ab}
+\intertext{Die Abweichung ist ungefähr zwischen}
+-5\cdot10^{-3}\leq x \leq 5\cdot10^{-3}
+\intertext{gleich 0.}
+\end{align*}
+
+\subsection{b)/c)}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{plot 3b)log.pdf}
+  \caption{Betragsmäßige Abweichung von der Funktion $f(x)$.}
+  \label{fig:3a}
+\end{figure}
+\FloatBarrier
+\begin{align*}
+\intertext{\Rightarrow In einem Bereich von:}
+-5\cdot10^{-5}\leq x \leq 5\cdot10^{-5}
+\intertext{Weicht das numerische Ergebnis vom Algebraischen um nicht mehr als $1\%$ ab}
+\intertext{Die Abweichung ist ungefähr bei}
+\left|x\right|\geq 2\cdot10^{-4}
+\intertext{gleich 0.}
+\end{align*}
+
+
 
 \section{Aufgabe 4}
 
