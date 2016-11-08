@@ -1,93 +1,56 @@
 \newpage
-\section{Aufgabe4}
-\label{sec:a4}
+\section{Aufgabe2}
+\label{sec:a2}
 
 \subsection{a)}
-\label{subsec:a4a}
-Nein, die angegebene Gleichung ist nicht stabil, denn für Werte von $\Theta$ in der nahen Umgebung ganzzahliger Vielfacher von $\pi$ werden im Nenner zwei
-nahezu gleichgroße Zahlen voneinander abgezogen. Dies ist der Fall, da $\beta^{2}$ für
-\\
-\begin{equation}
-  \label{eqn:a4af1}
-  E_\text{e} = \SI{50}{\giga\electronvolt}
-\end{equation}
-einen Wert sehr nahe $1$ annimmt, sodass immmer wenn gilt
-\\
-\begin{equation}
-  \label{eqn:a4af2}
-  \lvert \cos\left( \theta \right) \rvert = 1,
-\end{equation}
-das besagte Stabilitätsproblem auftritt.
+\label{subsec:a2a}
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{plotge2a).pdf}
+  \caption{Histogramme für die Gewichtsverteilungen mit Unterschiedlicher Bins Anzahl.}
+  \label{fig:gr}
+\end{figure}
+\FloatBarrier
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{plotgr2a).pdf}
+  \caption{Histogramme für die Größenverteilungen mit Unterschiedlicher Bins Anzahl.}
+  \label{fig:ge}
+\end{figure}
+\FloatBarrier
+Bei einer zu hohen Bin-Anzahl entstehen leere Bins zwischen
 
 \subsection{b)}
-\label{subsec:a4b}
-Das in Abschnitt \ref{subsec:a4a} beschriebene Stabilitätsproblem lässt sich durch die Folgende algebraische Umformung des Nenners weitgehend beheben:
-\\
-\begin{align}
-  \label{eqn:a4bf1}
-  &1 - \beta^{2} \cdot \cos\left( \theta \right)^{2}\\
-  &=\sin\left( \theta \right)^{2} + \cos\left( \theta \right)^{2} - \beta^{2} \cdot \cos\left( \theta \right)^{2} \\
-  &=\sin\left( \theta \right)^{2} + (1 - \beta^{2}) \cdot \cos\left( \theta \right)^{2}\\
-  &=\sin\left( \theta \right)^{2} + \gamma^{-2} \cdot \cos\left( \theta \right)^{2}
-\end{align}
-
-Somit ergibt sich dann für folgender Ausdruck für den Wirkungsquerschnitt:
-\\
-\begin{equation}
-  \label{eqn:a4bf2}
-  \frac{\text{d}\sigma}{\text{d}\Omega} = \frac{\alpha^{2}}{s} \cdot \frac{2 + \sin\left( \theta \right)}{\sin\left( \theta \right)^{2} + \gamma^{-2} \cdot \cos\left( \theta \right)^{2}}.
-\end{equation}
-
-In der in Gleichung \eqref{eqn:a4bf2} gezeigten Darstellung der Formel, wird im Nenner nun eine Addition ausgeführt, was die Stabilitätsprobleme verringert.
-
+\label{subsec:a2b}
+Bei Daten von mehr als 250 Personen kann es bei zu Breit gewählten Bins sein,
+dass die Bins in der Mitte eine deutlich größere Anzahl enthalten als die Außeren.
+Was dazu führen könnte, dass
+die Bins außerhalb deutlich kleiner sind als die in der Mitte der Normalverteilung.
+Um dies zu verhinder muss die Bin bereite verkleinert werden. Jedoch darf
+diese nicht zu klein gewählt werden, da sonst wieder leere Bins entstehen
+können.
+Sinnvolle minimale Bin-Breiten :
+\begin{align*}
+  \intertext{Größe:}
+    1
+  \intertext{Gewicht:}
+   0,01
+\end{align*}
+Position der Bin-Mitte genau in der Mitter der Breite
 \subsection{c)}
-\label{subsec:a4c}
-Um die in Abschnitt \ref{subsec:a4b} beschriebene Stabilitätsverbesserung zu verifizieren, werden nun beide Funktionen in einem sehr kleinen Bereich
-um $pi$ herum geplottet. In Abbildung \ref{fig:a4A1} sind die zugehörigen Graphen gezeigt. Anhand dieser ist klar zu erkennen, dass die Rundungsfehler,
-welche sich in Form der Treppen äußern,
-eindeutig unterdrückt wurden.
-\\
+\label{subsec:a2c}
 
-\FloatBarrier
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{plot 4c).pdf}
-  \caption{Graphische Darstellung der ursprünglichen Funktion sowie der Stabilisierten .}
-  \label{fig:a4A1}
+  \includegraphics[width=\textwidth]{plotgr2a).pdf}
+  \caption{Histogramme für $10^5$ logarithmierte gleichverteilte Zahlen aus
+  dem Intervall $1-100$ mit Unterschiedlicher Bins Anzahl.}
+  \label{fig:ge}
 \end{figure}
 \FloatBarrier
 
-\subsection{d)}
-Die Konditionszahl $K$ wird über den folgenden Zusammenhang berechnet:
-\\
-\begin{equation}
-  \label{eqn:a4df1}
-  K = \lvert \theta \cdot \frac{\text{d}f(\theta)}{\text{d}\theta} \cdot \frac{1}{f(\theta)}\rvert.
-\end{equation}
-Für die Ableitung des differentiellen Wirkungsquerschnitts nach $\theta$ gilt
-\\
-\begin{equation}
-  \label{eqn:a4df2}
-   \frac{\text{d}f(\theta)}{\text{d}\theta} = \frac{\left(1-3\beta\right) \cdot \sin\left( 2\theta \right)}{\left( 1 - \beta^{2} \cdot \cos\left( \theta \right)^{2} \right)^{2}}
-\end{equation}
-
-Damit ergibt sich dann für die Konditionszahl
-\\
-\begin{equation}
-  \label{eqn:a4df3}
-  \lvert \frac{\left( 1 - 3\beta^{2} \right) \cdot \left( 1 - \beta^{2} \cdot \cos\left( \theta \right)^{2} \right)^{2} \cdot \sin\left( 2\theta \right)}{\left( \sin\left( \theta \right)^{2} + 2\right) \cdot \left( \beta^{2} \cdot \cos\left( \theta \right)^{2} - 1 \right)^{2}} \rvert.
-\end{equation}
-
-\subsection{e)}
-Um zu veranschaulichen für welche Werte von $\theta$ eine gute oder schlechte Konditionierung vorliegt, ist die Konditionszahl $K\left( \theta \right)$
-in Abbildung \ref{fig:a4eA1} für $\theta$ zwischen $0$ und $\pi$ gegen $\theta$ aufgetragen.
-\\
-Es ist zu erkennen, dass das Problem gut Konditioniert ist bis auf Werte sehr nahe $\pi$, wo es eine sehr schlechte Konditionierung aufweist.
-\FloatBarrier
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{plot 4e).pdf}
-  \caption{Konditionszahl in Abhängikeit von Theta.}
-  \label{fig:a4eA1}
-\end{figure}
-\FloatBarrier
+Bei zu hoher Bin-Zahl entstehten Leere Bins in dem Bereich zwischen 0 und 2.
+Folglich
