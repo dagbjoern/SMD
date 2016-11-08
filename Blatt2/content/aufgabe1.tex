@@ -2,92 +2,53 @@
 \section{Aufgabe4}
 \label{sec:a4}
 
+Die Normierungskonstante $N$ ist bei $f(v)$ gleich 1
 \subsection{a)}
-\label{subsec:a4a}
-Nein, die angegebene Gleichung ist nicht stabil, denn für Werte von $\Theta$ in der nahen Umgebung ganzzahliger Vielfacher von $\pi$ werden im Nenner zwei
-nahezu gleichgroße Zahlen voneinander abgezogen. Dies ist der Fall, da $\beta^{2}$ für
-\\
-\begin{equation}
-  \label{eqn:a4af1}
-  E_\text{e} = \SI{50}{\giga\electronvolt}
-\end{equation}
-einen Wert sehr nahe $1$ annimmt, sodass immmer wenn gilt
-\\
-\begin{equation}
-  \label{eqn:a4af2}
-  \lvert \cos\left( \theta \right) \rvert = 1,
-\end{equation}
-das besagte Stabilitätsproblem auftritt.
-
-\subsection{b)}
-\label{subsec:a4b}
-Das in Abschnitt \ref{subsec:a4a} beschriebene Stabilitätsproblem lässt sich durch die Folgende algebraische Umformung des Nenners weitgehend beheben:
-\\
+\label{subsec:a1a}
+Für wahrscheinlichste Geschwindigkeit $v_m$ muss
+$f'(v)$ bestimmt werden:
 \begin{align}
-  \label{eqn:a4bf1}
-  &1 - \beta^{2} \cdot \cos\left( \theta \right)^{2}\\
-  &=\sin\left( \theta \right)^{2} + \cos\left( \theta \right)^{2} - \beta^{2} \cdot \cos\left( \theta \right)^{2} \\
-  &=\sin\left( \theta \right)^{2} + (1 - \beta^{2}) \cdot \cos\left( \theta \right)^{2}\\
-  &=\sin\left( \theta \right)^{2} + \gamma^{-2} \cdot \cos\left( \theta \right)^{2}
+  f'(v)=\left(\frac{m}{2\pi k_B T}\right)^{3/2}\left(\frac{4\pi v}{k_BT} e^{-\frac{mv^2}{2 k_B T}}\left(-mv^2+2k_BT\right) \right)
+\intertext{und aus}
+f'(v)=0
+\intertext{folgt}
+v_m=\sqrt{\frac{2kT}{m}}
 \end{align}
 
-Somit ergibt sich dann für folgender Ausdruck für den Wirkungsquerschnitt:
-\\
-\begin{equation}
-  \label{eqn:a4bf2}
-  \frac{\text{d}\sigma}{\text{d}\Omega} = \frac{\alpha^{2}}{s} \cdot \frac{2 + \sin\left( \theta \right)}{\sin\left( \theta \right)^{2} + \gamma^{-2} \cdot \cos\left( \theta \right)^{2}}.
-\end{equation}
-
-In der in Gleichung \eqref{eqn:a4bf2} gezeigten Darstellung der Formel, wird im Nenner nun eine Addition ausgeführt, was die Stabilitätsprobleme verringert.
+\subsection{b)}
+\label{subsec:a1b}
+Für den Erwartungswert $\Braket{v}$ muss das Intergral:
+\begin{align}
+  \Braket{v}&=\int_0^{\infty} f(v) v \symup{d} v\\
+&=\left(\frac{m}{2\pi k_B T}\right)^{3/2}4\pi \int_0^{\infty} \underbrace{v e^{-\frac{mv^2}{2 k_B T}}}_{u'}
+\underbrace{v^2}_{g} \symup{d}v\\
+u=-\frac{k_BT}{m}e^{-\frac{mv^2}{2 k_B T}}   & \: \: v'=2v
+\intertext{Mit Hilfe dieses Ansatzes für die partielle Intergration ergibt sich:}
+\Braket{v}&=\sqrt{\frac{8 k_B T}{m \pi}}
+\end{align}
 
 \subsection{c)}
-\label{subsec:a4c}
-Um die in Abschnitt \ref{subsec:a4b} beschriebene Stabilitätsverbesserung zu verifizieren, werden nun beide Funktionen in einem sehr kleinen Bereich
-um $pi$ herum geplottet. In Abbildung \ref{fig:a4A1} sind die zugehörigen Graphen gezeigt. Anhand dieser ist klar zu erkennen, dass die Rundungsfehler,
-welche sich in Form der Treppen äußern,
-eindeutig unterdrückt wurden.
-\\
-
-\FloatBarrier
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{plot 4c).pdf}
-  \caption{Graphische Darstellung der ursprünglichen Funktion sowie der Stabilisierten .}
-  \label{fig:a4A1}
-\end{figure}
-\FloatBarrier
-
+Um der Median der Geschwindigkeit $v_{0,5}$ in Abhängigkeit von $v_m$ zu berechne, muss zu nächst $f(v)$
+mit
+\begin{align}
+  \frac{k_BT}{m}=2v_m
+\end{align}
+umgeformt werden.
+\begin{align}
+  \Rightarrow f(v)=\left(\frac{1}{4\pi v_m^2}\right)^{\frac{2}{3}}e^{-\frac{v^2}{4v_m^2}}4\pi v^2
+\end{align}
 \subsection{d)}
-Die Konditionszahl $K$ wird über den folgenden Zusammenhang berechnet:
-\\
-\begin{equation}
-  \label{eqn:a4df1}
-  K = \lvert \theta \cdot \frac{\text{d}f(\theta)}{\text{d}\theta} \cdot \frac{1}{f(\theta)}\rvert.
-\end{equation}
-Für die Ableitung des differentiellen Wirkungsquerschnitts nach $\theta$ gilt
-\\
-\begin{equation}
-  \label{eqn:a4df2}
-   \frac{\text{d}f(\theta)}{\text{d}\theta} = \frac{\left(1-3\beta\right) \cdot \sin\left( 2\theta \right)}{\left( 1 - \beta^{2} \cdot \cos\left( \theta \right)^{2} \right)^{2}}
-\end{equation}
 
-Damit ergibt sich dann für die Konditionszahl
-\\
-\begin{equation}
-  \label{eqn:a4df3}
-  \lvert \frac{\left( 1 - 3\beta^{2} \right) \cdot \left( 1 - \beta^{2} \cdot \cos\left( \theta \right)^{2} \right)^{2} \cdot \sin\left( 2\theta \right)}{\left( \sin\left( \theta \right)^{2} + 2\right) \cdot \left( \beta^{2} \cdot \cos\left( \theta \right)^{2} - 1 \right)^{2}} \rvert.
-\end{equation}
 
 \subsection{e)}
-Um zu veranschaulichen für welche Werte von $\theta$ eine gute oder schlechte Konditionierung vorliegt, ist die Konditionszahl $K\left( \theta \right)$
-in Abbildung \ref{fig:a4eA1} für $\theta$ zwischen $0$ und $\pi$ gegen $\theta$ aufgetragen.
-\\
-Es ist zu erkennen, dass das Problem gut Konditioniert ist bis auf Werte sehr nahe $\pi$, wo es eine sehr schlechte Konditionierung aufweist.
-\FloatBarrier
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{plot 4e).pdf}
-  \caption{Konditionszahl in Abhängikeit von Theta.}
-  \label{fig:a4eA1}
-\end{figure}
-\FloatBarrier
+Für die Standardabweichung der Geschwindigkeit $\sigma_v$ muss zunächst
+$\Braket{v^2}$ berechnet werden.
+\begin{align}
+\Braket{v^2}&=\int_0^{\infty} f(v) v^2 \symup{d} v\\
+\intertext{Das Integral
+lässt sich mit mehrfacher partieller
+Intergration in der Form, die in \ref{subsec:a1b} verwendet wird, lösen und es ergibt sich:}
+\Braket{x^2}&=6\sqrt{\frac{2}{\pi}}\left(\frac{k_BT}{m}\right)^{\frac{3}{2}}
+\intertext{Für die Standardabweichung folgt:}
+\sigma_v&=\sqrt{\Braket{v^2}-\Braket{v}^2} =\sqrt{6\sqrt{\frac{2}{\pi}}\left(\frac{k_BT}{m}\right)^{\frac{3}{2}} -\frac{8k_BT}{m\pi}}
+\end{align}

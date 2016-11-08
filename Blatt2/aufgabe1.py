@@ -6,23 +6,18 @@ from uncertainties.unumpy import (nominal_values as noms,
 from scipy import stats
 from scipy.optimize import curve_fit
 import scipy.constants as con
+import scipy.integrate as integrate
+import scipy.special as special
+
 
 # Aufgabe 1
-x=np.linspace(0,1000)
+#c)
 
-#a)
-def f(v,m,T):
-    f=(m/(2*np.pi*con.k*T))**(3/2)*np.exp(-mv**2/(2*con.k*T))*4*np.pi*v**2
-    return f
+def f(v,v_m):
+    f=(1/(4*np.pi*(v_m**2)))**(2/3)*np.exp(-(v**2/(4*np.pi*v_m**2)))*4*np.pi*v^2
+  return f
 
+v_median=x*v_m
 
-
-
-#Funktion plotten
-plt.figure(1)
-plt.plot(x,f(x,),'.r',label=r'$f(v)$')
-plt.legend(loc='best')
-plt.grid(True)
-#plt.ylim(-0.5e-18,1.2e-18)
-#plt.xlim(0.9985,1.0015)
-plt.savefig('plot 1.pdf')
+  result = integrate.quad(lambda v: f(v,), 0, v_median)
+  if result==0.5

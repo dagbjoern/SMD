@@ -8,7 +8,7 @@
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{plotge2a).pdf}
-  \caption{Histogramme für die Gewichtsverteilungen mit Unterschiedlicher Bins Anzahl.}
+  \caption{Histogramme für die Gewichtsverteilungen mit Unterschiedlicher Bin-Anzahl.}
   \label{fig:gr}
 \end{figure}
 \FloatBarrier
@@ -17,40 +17,53 @@
 \begin{figure}
   \centering
   \includegraphics[width=\textwidth]{plotgr2a).pdf}
-  \caption{Histogramme für die Größenverteilungen mit Unterschiedlicher Bins Anzahl.}
+  \caption{Histogramme für die Größenverteilungen mit Unterschiedlicher Bin-Anzahl.}
   \label{fig:ge}
 \end{figure}
 \FloatBarrier
-Bei einer zu hohen Bin-Anzahl entstehen leere Bins zwischen
+Bei einer zu hohen Bin-Anzahl entstehen teilweise leere oder zu wenig gefüllte
+Bins die nicht zu dem Verlauf der Verteilung passen,
+da dies so wirkt als ob die jeweiligen
+Größen oder Gewichte nicht so häufig vorkommen, dies ist jedoch den wenigen
+Messwerten geschuldt. Somit ist es Sinnvoll bei nicht so vielen Messwerten
+eine kleinere Anzahl an Bins zu verwenden. Bei dem Histogramm \ref{fig:ge}
+sollte maximal 15 Bins verwenden. Bei dem Histogramm
+\ref{fig:gr} können, da die Messwerte näher bei einander liegen,
+maximal 20 Bins verwendent werden.
+
+
 
 \subsection{b)}
 \label{subsec:a2b}
 Bei Daten von mehr als 250 Personen kann es bei zu Breit gewählten Bins sein,
 dass die Bins in der Mitte eine deutlich größere Anzahl enthalten als die Außeren.
 Was dazu führen könnte, dass
-die Bins außerhalb deutlich kleiner sind als die in der Mitte der Normalverteilung.
+die Bins außerhalb deutlich kleiner sind als die in der Mitte der Verteilung.
 Um dies zu verhinder muss die Bin bereite verkleinert werden. Jedoch darf
-diese nicht zu klein gewählt werden, da sonst wieder leere Bins entstehen
+diese nicht zu klein gewählt werden, da sonst wieder leere oder weniger gefüllte Bins entstehen
 können.
-Sinnvolle minimale Bin-Breiten :
+Die minimale Bin-Breite sollte nur nicht unterhalb der Messgenauigkeit liegen.
+Bei den Datensätzen für mehr als 250
+Personen wären somit sinnvolle minimale Bin-Breiten:
 \begin{align*}
-  \intertext{Größe:}
-    1
-  \intertext{Gewicht:}
-   0,01
+  &\text{Größe:} \, &1, \\
+  &\text{Gewicht:}\, &0,01
 \end{align*}
-Position der Bin-Mitte genau in der Mitter der Breite
+Dies entspricht Gleichzeitig auch der Messgenauigkeit für die jeweilige Größe.
+Die Position der Bin-Mitte ist genau in der Mitter der entsprechenden Breite.
+\newpage
 \subsection{c)}
 \label{subsec:a2c}
 
 \begin{figure}
   \centering
-  \includegraphics[width=\textwidth]{plotgr2a).pdf}
+  \includegraphics[width=\textwidth]{plot2c).pdf}
   \caption{Histogramme für $10^5$ logarithmierte gleichverteilte Zahlen aus
-  dem Intervall $1-100$ mit Unterschiedlicher Bins Anzahl.}
-  \label{fig:ge}
+  dem Intervall $1-100$ mit Unterschiedlicher Bin-Anzahl.}
+  \label{fig:c}
 \end{figure}
 \FloatBarrier
 
-Bei zu hoher Bin-Zahl entstehten Leere Bins in dem Bereich zwischen 0 und 2.
-Folglich
+Bei zu hoher Bin-Zahl entstehten wieder leere Bins in dem Bereich zwischen 0 und 2.
+Folglich sind $10^5$ logarithmierte gleichverteilte Zahlen aus
+dem Intervall $1-100$ zu wenig um ein hohe Anzahl Bins zu verwenden zu können.
