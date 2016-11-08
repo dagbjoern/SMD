@@ -11,7 +11,7 @@ import scipy.constants as con
 x=np.linspace(0,1000)
 
 #a)
-def fv(v,m,T):
+def f(v,m,T):
     f=(m/(2*np.pi*con.k*T))**(3/2)*np.exp(-mv**2/(2*con.k*T))*4*np.pi*v**2
     return f
 
@@ -20,7 +20,7 @@ def fv(v,m,T):
 
 #Funktion plotten
 plt.figure(1)
-plt.plot(x,fx(x),'.r',label=r'$f(v)$')
+plt.plot(x,f(x,),'.r',label=r'$f(v)$')
 plt.legend(loc='best')
 plt.grid(True)
 #plt.ylim(-0.5e-18,1.2e-18)
