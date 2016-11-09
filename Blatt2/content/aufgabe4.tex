@@ -4,90 +4,125 @@
 
 \subsection{a)}
 \label{subsec:a4a}
-Nein, die angegebene Gleichung ist nicht stabil, denn für Werte von $\Theta$ in der nahen Umgebung ganzzahliger Vielfacher von $\pi$ werden im Nenner zwei
-nahezu gleichgroße Zahlen voneinander abgezogen. Dies ist der Fall, da $\beta^{2}$ für
+Gegeben: 2D-Gaussverteilung mit den Parametern:
+\\
+\begin{align*}
+\mu_{x} &= 4\\
+\mu_{y} &= 2\\
+\sigma_{x} &= 3.5\\
+\sigma_{y} &= 1.5\\
+Cov\left( x,y \right) &= 4.2
+\end{align*}
+
+Der Korrelationskoeffizient $\rho\left( x,y \right)$ ist gegeben durch:
 \\
 \begin{equation}
-  \label{eqn:a4af1}
-  E_\text{e} = \SI{50}{\giga\electronvolt}
+  \label{eqn:korkoef}
+  \rho\left( x,y \right) = \frac{Cov\left( x,y \right)}{\sigma_{x} \cdot \sigma_{y}}.
 \end{equation}
-einen Wert sehr nahe $1$ annimmt, sodass immmer wenn gilt
+
+Mit den Werten für $\sigma_{x}$  und $\sigma_{y}$ ergibt sich über Gleichung \eqref{eqn:korkoef}
 \\
-\begin{equation}
-  \label{eqn:a4af2}
-  \lvert \cos\left( \theta \right) \rvert = 1,
-\end{equation}
-das besagte Stabilitätsproblem auftritt.
+\begin{align*}
+    \rho\left( x,y \right) = 0.8
+\end{align*}
+
 
 \subsection{b)}
 \label{subsec:a4b}
-Das in Abschnitt \ref{subsec:a4a} beschriebene Stabilitätsproblem lässt sich durch die Folgende algebraische Umformung des Nenners weitgehend beheben:
-\\
-\begin{align}
-  \label{eqn:a4bf1}
-  &1 - \beta^{2} \cdot \cos\left( \theta \right)^{2}\\
-  &=\sin\left( \theta \right)^{2} + \cos\left( \theta \right)^{2} - \beta^{2} \cdot \cos\left( \theta \right)^{2} \\
-  &=\sin\left( \theta \right)^{2} + (1 - \beta^{2}) \cdot \cos\left( \theta \right)^{2}\\
-  &=\sin\left( \theta \right)^{2} + \gamma^{-2} \cdot \cos\left( \theta \right)^{2}
-\end{align}
-
-Somit ergibt sich dann für folgender Ausdruck für den Wirkungsquerschnitt:
+Die 2D-Gaussverteilung hat die Dichtefunktion:
 \\
 \begin{equation}
-  \label{eqn:a4bf2}
-  \frac{\text{d}\sigma}{\text{d}\Omega} = \frac{\alpha^{2}}{s} \cdot \frac{2 + \sin\left( \theta \right)}{\sin\left( \theta \right)^{2} + \gamma^{-2} \cdot \cos\left( \theta \right)^{2}}.
+  \label{eqn:gaussdichte}
+  \Phi =  k \cdot e^{-0.5 \left( \cdot \left( \symbf{X} - \symbf{\mu} \right)^{\top} \symbf{B} \left( \symbf{X} - \symbf{\mu} \right)\right)}
+\end{equation}
+Dabei ist die Matrix $B$ gegeben durch :
+\\
+\begin{equation}
+  \label{eqn:B}
+  \symbf{B} = \frac{1}{\sigma_{x}^{2} \cdot \sigma_{y}^{2} - Cov\left( x,y \right)^{2}} \cdot
+  \begin{pmatrix}
+    \sigma_{y}^{2} & -Cov\left( x,y \right)\\
+    -Cov\left( x,y \right) & \sigma_{x}^{2}
+  \end{pmatrix}
+\end{equation}
+Durch Einsetzen von \eqref{eqn:B} in Beziehung \eqref{eqn:gaussdichte} sowie einige Umformungsschritte und anschließendes Logarithmieren ergibt sich für die Dichtefunktion(soll als konstant betrachtetn werden):
+\\
+\begin{equation}
+  \label{gaussdichte2}
+  \ln\left(\frac{\Phi}{k} \right) = \frac{1}{1-\rho^{2}} \cdot \left( \frac{\left( x - \mu_{x} \right)^{2}}{\sigma_{x}^{2}} - 2 \cdot
+  \rho \frac{\left( x - \mu_{x} \right) \cdot \left( y - \mu_{y} \right)}{\sigma_{x} \cdot \sigma_{y}} +
+  \frac{\left( y - \mu_{y} \right)^{2}}{\sigma_{y}^{2}} \right)
 \end{equation}
 
-In der in Gleichung \eqref{eqn:a4bf2} gezeigten Darstellung der Formel, wird im Nenner nun eine Addition ausgeführt, was die Stabilitätsprobleme verringert.
+Diese Gleichung stellt eine in $x$ und $y$ quadratische Funktion dar, die gleich einer Konstanten ist. Es handelt sich um eine Ellipsengleichung.
+\\
 
 \subsection{c)}
 \label{subsec:a4c}
-Um die in Abschnitt \ref{subsec:a4b} beschriebene Stabilitätsverbesserung zu verifizieren, werden nun beide Funktionen in einem sehr kleinen Bereich
-um $pi$ herum geplottet. In Abbildung \ref{fig:a4A1} sind die zugehörigen Graphen gezeigt. Anhand dieser ist klar zu erkennen, dass die Rundungsfehler,
-welche sich in Form der Treppen äußern,
-eindeutig unterdrückt wurden.
-\\
-
-\FloatBarrier
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{plot 4c).pdf}
-  \caption{Graphische Darstellung der ursprünglichen Funktion sowie der Stabilisierten .}
-  \label{fig:a4A1}
-\end{figure}
-\FloatBarrier
 
 \subsection{d)}
-Die Konditionszahl $K$ wird über den folgenden Zusammenhang berechnet:
-\\
-\begin{equation}
-  \label{eqn:a4df1}
-  K = \lvert \theta \cdot \frac{\text{d}f(\theta)}{\text{d}\theta} \cdot \frac{1}{f(\theta)}\rvert.
-\end{equation}
-Für die Ableitung des differentiellen Wirkungsquerschnitts nach $\theta$ gilt
-\\
-\begin{equation}
-  \label{eqn:a4df2}
-   \frac{\text{d}f(\theta)}{\text{d}\theta} = \frac{\left(1-3\beta\right) \cdot \sin\left( 2\theta \right)}{\left( 1 - \beta^{2} \cdot \cos\left( \theta \right)^{2} \right)^{2}}
-\end{equation}
-
-Damit ergibt sich dann für die Konditionszahl
-\\
-\begin{equation}
-  \label{eqn:a4df3}
-  \lvert \frac{\left( 1 - 3\beta^{2} \right) \cdot \left( 1 - \beta^{2} \cdot \cos\left( \theta \right)^{2} \right)^{2} \cdot \sin\left( 2\theta \right)}{\left( \sin\left( \theta \right)^{2} + 2\right) \cdot \left( \beta^{2} \cdot \cos\left( \theta \right)^{2} - 1 \right)^{2}} \rvert.
-\end{equation}
-
+\label{subsec:a4d}
 \subsection{e)}
-Um zu veranschaulichen für welche Werte von $\theta$ eine gute oder schlechte Konditionierung vorliegt, ist die Konditionszahl $K\left( \theta \right)$
-in Abbildung \ref{fig:a4eA1} für $\theta$ zwischen $0$ und $\pi$ gegen $\theta$ aufgetragen.
+\label{subsec:a4e}
+Der Winkel den die Hauptachsen der Kovarianzellipse mit den Hauptachsen
+einschließen, ist gegeben durch:
 \\
-Es ist zu erkennen, dass das Problem gut Konditioniert ist bis auf Werte sehr nahe $\pi$, wo es eine sehr schlechte Konditionierung aufweist.
-\FloatBarrier
-\begin{figure}
-  \centering
-  \includegraphics[width=\textwidth]{plot 4e).pdf}
-  \caption{Konditionszahl in Abhängikeit von Theta.}
-  \label{fig:a4eA1}
-\end{figure}
-\FloatBarrier
+\begin{equation}
+  \label{eqn:winkel}
+  \alpha = 0.5 \cdot \arctan\left( \frac{2\rho\sigma_{x}\sigma_{y}}{\sigma_{x}^{2} - \sigma{y}^{2}} \right) = \SI{0.349}{\radian}
+\end{equation}
+Mit dem Winkel $\alpha$ lassen sich nun die Längen der Hauptachsen bestimmen:
+\\
+\begin{align}
+  \H_\text{l} &= \sqrt{\left( 1 - \rho^{2} \right) \cdot \frac{1}{\frac{\cos\left( \alpha \right)^{2} - \frac{2\rho\sin\left( \alpha \right) \cos\left( \alpha \right)}{\sigma_{x} \cdot \sigma_{y}} +
+  \frac{\sin\left( \alpha \right)^{2}}{\sigma_{y}^{2}}}{\sigma_{x}^{2}}}}
+  &= 27.560\\
+  \H_\text{k} &= \sqrt{\left( 1 - \rho^{2} \right) \cdot \frac{1}{\frac{\sin\left( \alpha \right)^{2} - \frac{2\rho\sin\left( \alpha \right) \cos\left( \alpha \right)}{\sigma_{x} \cdot \sigma_{y}} +
+  \frac{\cos\left( \alpha \right)^{2}}{\sigma_{y}^{2}}}{\sigma_{x}^{2}}}}
+  &= 1.184
+\end{align}
+
+\subsection{f)}
+\label{subsec:a4f}
+Die bedingten Wahrscheinlichkeitsdichten, lassen sich über
+\\
+\begin{align}
+  \label{eqn:bedwahr}
+  \Phi(x\mid y_\text{c}) &= \frac{\Phi \left( x,y \right)}{h \left( y \right)}\\
+  \Phi(y\mid x_\text{c}) &= \frac{\Phi \left( x,y \right)}{g \left( x \right)}
+\end{align}
+berechnen. Dabei sind $g$ , $h$ die Dichten der Randverteilungen und $y_\text{c}$ bzw.$x_\text{c}$ sollen anzeigen, dass es jeweils für diese Variable ein Wert
+eingesetzt wird. Es gilt:
+\\
+\begin{align}
+  g\left( x \right) &= \int_{-\infty}^{\infty} \Phi\left( x,y \right) \mathrm{d}y\\
+  h\left( y \right) &= \int_{-\infty}^{\infty} \Phi\left( x,y \right) \mathrm{d}x
+\end{align}
+Es ergeben sich für die bedingten Wahrscheinlichkeiten
+\\
+\begin{align}
+  \Phi\left( x\mid y_\text{c} \right) &= \frac{1}{\sqrt{2\pi \cdot \sigma_{x} \cdot\left( 1 - \rho^{2} \right)}}
+  \cdot e^{\frac{-1}{2\cdot\left( 1-\rho^{2} \right)} \cdot \left( \frac{x - \mu_{x}}{\sigma_{x}} - \frac{\left( y_\text{c} -  \right)}{\sigma_{y}} \right)}\\
+  \Phi\left( y\mid x_\text{c} \right) &= \frac{1}{\sqrt{2\pi \cdot \sigma_{y} \cdot\left( 1 - \rho^{2} \right)}}
+  \cdot e^{\frac{-1}{2\cdot\left( 1-\rho^{2} \right)} \cdot \left( \frac{y - \mu_{y}}{\sigma_{y}} - \frac{\left( x_\text{c} -  \right)}{\sigma_{x}} \right)}
+\end{align}
+
+\subsection{g)}
+\label{subsec:a4g}
+Für die bedingten Erwartungswerte in $x$ und $y$ gilt
+\\
+\begin{align}
+  E\left( x \mid y_\text{c} \right) &= \int_{-\infty}^{\infty} x \cdot
+  \left( x \mid y_\text{c} \right) \mathrm{d}x \\
+  E\left( x \mid y_\text{c} \right) &= \int_{-\infty}^{\infty} x \cdot
+  \left( x \mid y_\text{c} \right) \mathrm{d}x
+\end{align}
+Durch Integration ergeben sich:
+\\
+\begin{align}
+  E\left( x \mid y_\text{c} \right) &= \mu_{x} + \sigma_{x} \cdot
+  \rho \cdot \left( \frac{y_\text{c} - \mu_{y}}{\sigma_{y}} \right) &= 4 + \frac{2.8 \cdot\left( y_\text{c} - 2 \right)}{1.5}\\
+  E\left( y \mid x_\text{c} \right) &= \mu_{y} + \sigma_{y} \cdot
+  \rho \cdot \left( \frac{x_\text{c} - \mu_{x}}{\sigma_{x}} \right) &= 2 + \frac{1.2 \cdot\left( x_\text{c} - 4\right)}{3.5}
+\end{align}
