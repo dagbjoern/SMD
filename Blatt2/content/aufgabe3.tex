@@ -1,18 +1,60 @@
 \newpage
 \section{Aufgabe3}
 \label{sec:a3}
+Der Zufallszahlengenerator Z liefert gleichverteilte Zahlen von $0$ bis $1$
+Um nun Zufallszahlen zu erzeugen,die den folgenden Verteilungen $f(x)$ gehorchen,
+mussen die Werte von Z in die Funktion $x(r)$ für r eingesetzt werden. 
+
 
 \subsection{a)}
 \label{subsec:a3a}
+$f(x)=N$ in der Grenzen $x_\text{min}$ bis $s_\text{max}$.
+
+\begin{align}
+A&=\int_{x_\text{min}}^{x_\text{max}} N dx=
+N(x_\text{max}-x_\text{min})\stackrel{!}{=}1\\
+\Rightarrow N&=\frac{1}{(x_\text{max}-x_\text{min})}\\
+A(x)&=\int_{x_\text{min}}^{x}\frac{1}{(x_\text{max}-x_\text{min})}dx=\frac{x_\text{min}}{x_\text{max}-x_\text{min}}\\
+r(x)&=\frac{A(x)}{A}=\frac{x_\text{min}}{x_\text{max}-x_\text{min}}\\
+\iff x(r)&=r(x_\text{max}-x_\text{min})+x_\text{min}
+\end{align}
+
 
 \subsection{b)}
 \label{subsec:a3b}
+$f(t)=N\symup{e}^{-\frac{t}{\tau}}$ in den Grenzen $0$ bis $\infty$.
+
+\begin{align}
+A&=\int_0^{\infty}N\symup{e}^{-\frac{t}{\tau}}dt=N\tau\stackrel{!}{=}1\\
+\Rightarrow N&=\frac{1}{\tau}\\
+A(x)&=\int_0^x \frac{1}{\tau}\symup{e}^{-\frac{t}{\tau}}dt=-\symup{e}^{-\frac{x}{\tau}+1}\\
+r(x)&=\frac{A(x)}{A}=-\symup{e}^{-\frac{x}{\tau}+1}\\
+\iff x(r)&=-\tau\ln(1-r)
+\end{align}
 
 \subsection{c)}
 \label{subsec:a3c}
+$f(x)=Nx^{-n}$ ind den Grenzen  $x_\text{min}$ bis $s_\text{max}$.
+
+\begin{align}
+A&=\int_{x_\text{min}}^{x_\text{max}} Nx^{-n} dx=
+N(\frac{1}{1-n}x_\text{max}^{1-n}-\frac{1}{1-n}x_\text{min}^{1-n})\stackrel{!}{=}1\\
+\Rightarrow N&=\frac{1-n}{x_\text{max}^{1-n}-x_\text{min}^{1-n}}\\
+A(x)&=\int_{x_\text{min}}^x \frac{1-n}{x_\text{max}^{1-n}-x_\text{min}^{1-n}}x^-n dx=\frac{1}{x_\text{max}^{1-n}-x_\text{min}^{1-n}}\left(x^{1-n}-x_\text{min}^1-n\right)\\
+r(x)&=\frac{A(x)}{A}=\frac{1}{x_\text{max}^{1-n}-x_\text{min}^{1-n}}\left(x^{1-n}-x_\text{min}^1-n\right)\\
+\iff x(r) &=\sqrt[1-n]{r(x_\text{max}^{1-n}-x_\text{min}^{1-n})+x_\text{min}^{1-n}}
+\end{align}
 
 \subsection{d)}
 \label{subsec:a3d}
+$f(x)=\frac{1}{\pi}\frac{1}{1+x^{2}} $ in den Grenzen $-infty$ bis $\infty$
+\begin{align}
+A&=\int_{-\infty}^{\infty} \frac{1}{\pi}\frac{1}{1+x^{2}}dx =\frac{1}{\pi} \arctan(x)\bigr|_{-\infty}^{\infty}=1 \\
+A(x)&=\int_{-\infty}^{x} \frac{1}{\pi}\frac{1}{1+x^{2}}dx =\frac{1}{\pi} \arctan(x)\bigr|_{-\infty}^{x}
+=\frac{\arctan(x)}{\pi}+\frac{1}{2}\\
+r(x)&=\frac{A(x)}{A}=\frac{\arctan(x)}{\pi}+\frac{1}{2}\\
+\iff x(r)&=\tan\left(\left(r-\frac{1}{2}\right)\pi\right)
+\end{align}
 
 
 \subsection{e)}

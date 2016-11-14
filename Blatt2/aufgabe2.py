@@ -17,23 +17,27 @@ def gnrtr(xs, n):
 
 
 #rechnen
+plt.figure(1)
+test = gnrtr(101,10000)
+print('mittelwert',np.sum(test)/10000)
 
-plt.plot(1)
-test = gnrtr(3,100000)
-plt.hist(test, bins=100)
+plt.hist(test, bins=100,color='b')
 plt.savefig("plot1.pdf")
 
-plt.plot(2)
-test = gnrtr(-2,100000)
-plt.hist(test, bins=100)
+plt.figure(2)
+test = gnrtr(100,10000)
+print('mittelwert',np.sum(test)/10000)
+plt.hist(test, bins=100 ,color='r')
 plt.savefig("plot2.pdf")
 
-plt.plot(3)
-test = gnrtr(157,100000)
-plt.hist(test, bins=100)
+plt.figure(3)
+test = gnrtr(157,10000)
+print('mittelwert',np.sum(test)/10000)
+
+plt.hist(test, bins=100,color='y')
 plt.savefig("plot3.pdf")
 
-plt.plot(4)
+plt.figure(4)
 cool = nr.randint(0,1)
 plt.hist(cool,bins=100)
 
