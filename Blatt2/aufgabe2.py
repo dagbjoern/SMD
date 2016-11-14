@@ -93,12 +93,15 @@ print(z)
 
 fig = plt.figure(6)
 ax = fig.add_subplot(111, projection='3d')
-n = 100
 
-ax.scatter(x, y, z)
-
-ax.set_xlabel('X Label')
-ax.set_ylabel('Y Label')
-ax.set_zlabel('Z Label')
+ax.view_init(45, 30)# Elevation , Rotation
+ax.scatter(
+x, y, z,
+lw=0,# no lines around points
+s=5,# smaller points
+)
+# ax.set_xlabel('X Label')
+# ax.set_ylabel('Y Label')
+# ax.set_zlabel('Z Label')
 
 plt.savefig('scatterplot3D.pdf')
