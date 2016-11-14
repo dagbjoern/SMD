@@ -1,0 +1,75 @@
+\newpage
+\section{Aufgabe 1}
+\label{sec:a1}
+
+\subsection{a)}
+\label{subsec:a1a}
+Wenn die Zufallsvariable $x$ mit der Wahrscheinlichkeitsdichte
+\\
+\begin{equation}
+  \label{eqn:dichte}
+  f\left( x \right) =
+  \begin{cases}
+     1 , & 0 \le x \le 1 \\
+     0 , & \text{sonst}
+  \end{cases}
+\end{equation}
+beschrieben werden kann, lässt sich die Wahrscheinlichkeit, $x$ im Intervall von $a$
+bis $b$ zu erhalten, durch
+\\
+\begin{equation}
+  \label{eqn:wkeit}
+  p\left( a \le x \le b \right) = \int_{a}^{b} 1 \mathrm{d}x
+\end{equation}
+bestimmen. Dies gilt, obwohl sich die Integrationsgrenzen eigentlich vom negativen Unendlichem
+bis zum positiven Undendlichen erstrecken, weil außerhalb des Intervalls ist $f\left(x\right)$ gleich $0$.
+
+
+Somit beträgt die Wahrscheinlichkeit für das Intervall zwischen $\frac{1}{3}$ und $\frac{1}{2}$
+\\
+\begin{align*}
+  p\left( \frac{1}{3} \le x \le \frac{1}{2} \right) &= \int_{\frac{1}{3}}^{\frac{1}{3}}
+  1 \mathrm{d}x \\
+  &= \frac{1}{6}.
+\end{align*}
+
+\subsection{b)}
+\label{subsec:a1b}
+Die Warscheinlichkeit $x$ bei genau $\frac{1}{2}$ zu finden ist gleich $0$ , denn wenn
+man die Zahl nicht in einem Intervall sondern an einer bestimmten Stelle
+sucht ergibt sich gemäß Gleichung \eqref{eqn:wkeit} der Wert $0$. Dieses Ergebnis lässt sich auch dadurch
+erklären, dass es zwischen $0$ und $1$ unendlich viele Zahlen gibt. Somit ergibt sich bei Gleichverteilung
+als Wahrscheinlichkeit für eine bestimmte Zahl der Wert $0$.
+
+\subsection{c)}
+\label{subsec:a1c}
+Es wird eine Gleitkommazahl mit einer $23$-stelligen Mantisse betrachtet.
+Die größte allein mit der Mantisse darstellbare Dezimalzahl ist
+\\
+\begin{align*}
+  2^{23} - 1 = 8388607.
+\end{align*}
+Da der Computer Zahlen somit also Dezimalzahlen die in der ersten Nachkommastelle eine $5$, in den sechs
+Folgenden Stellen eine $0$ und daraus folgend Nachkommastellen ungleich $0$ besitzen fälschlicherweise als
+$0.5$ interpretiert gibt es also mehrere mögliche Generator-Ergebnisse die auf den für den Computer exakten Wert
+$0.5$ führen. Der Fehler der dabei gemacht wird befindet sich also in der $8.$ Nachkommastelle. Dies führt auf
+einen maximalen Abstand eines fälschlicherweise als $0.5$ interpretierten Werts von der Zahl $0.5$ von
+\\
+\begin{equation}
+  \label{eqn:abstand}
+  \varepsilon = 10^{-7}.
+\end{equation}
+
+ Somit ergibt sich gemäß Gleichung \eqref{eqn:wkeit}
+ \\
+ \begin{align*}
+   \tilde{p}\left( x = \frac{1}{2}\right) &= \int_{\frac{1}{2}}^{\frac{1}{2} + \varepsilon} 1 \mathrm{d}x\\
+   &= 10^{-7}
+ \end{align*}
+
+
+\subsection{d)}
+\label{subsec:a1d}
+Die zahl $\frac{2}{3}$ kann bei endlichem Speicherplatz nicht exakt als Gleitkommazahl dargestellt werden.
+Somit ist die Wahrscheinlichkeit die Zahl $2/3$ mit dem in dieser Aufgabe beschriebenen Generator exakt zu erhalten
+identisch mit $0$.
