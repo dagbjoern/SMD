@@ -28,10 +28,6 @@ def CauchyVerteilung(r):
     xr=np.tan((r-1/2)*np.pi)
     return xr
 
-
-#data = np.load('empirisches_histogramm.npy')
-#plt.hist(data['bin_mid'], bins=np.linspace(0., 1., 50),weights=data['hist'])
-#plt.show()
 plt.figure(1)
 plt.hist(Gleichverteilung(100000,10,100),bins=100) #r=100000 x_min=10 x_max=100
 plt.savefig('Gleichverteilung.pdf')
@@ -51,3 +47,9 @@ plt.figure(4)
 plt.hist(CauchyVerteilung(5000),bins=10000)  # r=10000
 plt.axis([-100, 100, 0 ,200])
 plt.savefig('CauchyVerteilung.pdf')
+
+
+plt.figure(5)
+data = np.load('empirisches_histogramm.npy')
+plt.hist(data['bin_mid'], bins=np.linspace(0., 1., 50),weights=data['hist'])
+plt.savefig('e.pdf')
