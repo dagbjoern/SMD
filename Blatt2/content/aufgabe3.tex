@@ -3,7 +3,7 @@
 \label{sec:a3}
 Der Zufallszahlengenerator Z liefert gleichverteilte Zahlen von $0$ bis $1$
 Um nun Zufallszahlen zu erzeugen,die den folgenden Verteilungen $f(x)$ gehorchen,
-mussen die Werte von Z in die Funktion $x(r)$ für r eingesetzt werden. 
+mussen die Werte von Z in die Funktion $x(r)$ für r eingesetzt werden.
 
 
 \subsection{a)}
@@ -20,6 +20,14 @@ r(x)&=\frac{A(x)}{A}=\frac{x_\text{min}}{x_\text{max}-x_\text{min}}\\
 \end{align}
 
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Gleichverteilung.pdf}
+  \caption{Histogramm für eine Gleichverteilung in den Grenzen $x_\text{min}=10$ bis $x_\text{max}=100$ mit 100 Bins.}
+  \label{fig:gleich}
+\end{figure}
+\FloatBarrier
+
 \subsection{b)}
 \label{subsec:a3b}
 $f(t)=N\symup{e}^{-\frac{t}{\tau}}$ in den Grenzen $0$ bis $\infty$.
@@ -32,9 +40,18 @@ r(x)&=\frac{A(x)}{A}=-\symup{e}^{-\frac{x}{\tau}+1}\\
 \iff x(r)&=-\tau\ln(1-r)
 \end{align}
 
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Exponentialgesetz.pdf}
+  \caption{Histogramm für ein Verteilung die dem Exponentialgesetz mit $\tau=10$ unterliegt mit 100 Bins.}
+  \label{fig:expo}
+\end{figure}
+\FloatBarrier
+
 \subsection{c)}
 \label{subsec:a3c}
-$f(x)=Nx^{-n}$ ind den Grenzen  $x_\text{min}$ bis $s_\text{max}$.
+$f(x)=Nx^{-n}$ in den Grenzen  $x_\text{min}$ bis $s_\text{max}$.
 
 \begin{align}
 A&=\int_{x_\text{min}}^{x_\text{max}} Nx^{-n} dx=
@@ -44,6 +61,17 @@ A(x)&=\int_{x_\text{min}}^x \frac{1-n}{x_\text{max}^{1-n}-x_\text{min}^{1-n}}x^-
 r(x)&=\frac{A(x)}{A}=\frac{1}{x_\text{max}^{1-n}-x_\text{min}^{1-n}}\left(x^{1-n}-x_\text{min}^1-n\right)\\
 \iff x(r) &=\sqrt[1-n]{r(x_\text{max}^{1-n}-x_\text{min}^{1-n})+x_\text{min}^{1-n}}
 \end{align}
+
+
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{Potenzgesetz.pdf}
+  \caption{Histogramm für ein Verteilung die dem Potenzgesetz mit $n=9$ unterliegt in den Grenzen $x_\text{min}=10$ bis $x_\text{max}=100$  mit 100 Bins.}
+  \label{fig:poten}
+\end{figure}
+\FloatBarrier
+
+
 
 \subsection{d)}
 \label{subsec:a3d}
@@ -56,6 +84,12 @@ r(x)&=\frac{A(x)}{A}=\frac{\arctan(x)}{\pi}+\frac{1}{2}\\
 \iff x(r)&=\tan\left(\left(r-\frac{1}{2}\right)\pi\right)
 \end{align}
 
+\begin{figure}
+  \centering
+  \includegraphics[width=\textwidth]{CauchyVerteilung.pdf}
+  \caption{Histogramm für eine Cauchy-Verteilung mit 10000 Bins.}
+  \label{fig:cauchy}
+\end{figure}
 
 \subsection{e)}
 \label{subsec:a3e}
