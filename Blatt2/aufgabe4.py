@@ -29,5 +29,8 @@ def aufgabe_1():
     print('Werte von y mit kor:',unp.uarray([y(x,a_0,a_1)],[sigma_y(x,a_0,fa_0,a_1,fa_1,p)]))
 
 
+
+
+
 if __name__ == '__main__':
  aufgabe_1()

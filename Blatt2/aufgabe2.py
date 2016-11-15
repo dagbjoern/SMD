@@ -49,34 +49,27 @@ def c3D(xs, n):
 
 
 
-#rechnen
+#plotten
 plt.figure(1)
-test = gnrtr(101,10000)
-print('mittelwert',np.sum(test)/10000)
+test1 = gnrtr(101,10000)
+print('mittelwert',np.sum(test1)/10000)
 
-plt.hist(test, bins=100,color='b')
+plt.hist(test1, bins=40,color='b')
 plt.savefig("plot1.pdf")
 
 plt.figure(2)
-test = gnrtr(100,10000)
-print('mittelwert',np.sum(test)/10000)
-plt.hist(test, bins=100 ,color='r')
+test2 = gnrtr(15,10000)
+print('mittelwert',np.sum(test2)/10000)
+plt.hist(test2, bins=40 ,color='r')
 plt.savefig("plot2.pdf")
 
 plt.figure(3)
-test = gnrtr(157,10000)
-print('mittelwert',np.sum(test)/10000)
+test3 = gnrtr(-4,10000)
+print('mittelwert',np.sum(test3)/10000)
 
-plt.hist(test, bins=100,color='y')
+plt.hist(test3, bins=40,color='y')
 plt.savefig("plot3.pdf")
 
-plt.figure(4)
-cool = nr.randint(0,1)
-plt.hist(cool,bins=100)
-
-plt.savefig("plot4.pdf")
-#ausgeben
-#print(test)
 
 #print(c2D(4,10))
 x,y =c2D(4,10000)

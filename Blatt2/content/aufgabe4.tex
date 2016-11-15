@@ -4,16 +4,70 @@
 
 \subsection{a)}
 \label{subsec:a4a}
+ Betrachtet wird die Funktion einer
+ Ausgleichsgeraden
+ \\
+ \begin{equation}
+   \label{eqn:f}
+   y = a_{0} + a_{1} \cdot x.
+ \end{equation}
+ Dabei seien die Parameter
+ \\
+ \begin{align*}
+   a_{0} &= \SI{1.0+-0.2}{}\\
+   a_{1} &= \SI{1.0+-0.2}{}
+ \end{align*}
+ sowie der Korrelationskoeffizient
+ \\
+ \begin{align*}
+   \rho = -0.8
+ \end{align*}
+gegeben.
+
+Berücksichtigt man die Korrelation,
+ergibt sich für die Unsicherheit von $y$
+in Abhängigkeit von $x$ der Zusammenhang
+\\
+\begin{equation}
+  \label{eqn:korr}
+  \sigma_{y}(x) = \sqrt{\sigma_{a_{0}}^{2} + \left( x \cdot \sigma_{a_{1}} \right)^{2}
+  + 2 \cdot \left( x \cdot \rho \cdot \sigma_{a_{0}} \cdot \sigma_{a_{1}} \right)}.
+\end{equation}
+Lässt man die Korrelation außer acht, so ergibt sich nach Gausßscher Fehlerfortpflanzung
+\\
+\begin{equation}
+  \label{eqn:unkorr}
+  \sigma_{y}(x) = \sqrt{\sigma_{a_{0}}^{2} + \left( x \cdot \sigma_{a_{1}} \right)^{2}}.
+\end{equation}
+
+
+\subsection{a)}
+\label{subsec:a4a}
 
 \subsection{b)}
 \label{subsec:a4b}
 
 \subsection{c)}
 \label{subsec:a4c}
-
-\subsection{d)}
-\label{subsec:a4d}
-
-
-\subsection{e)}
-\label{subsec:a4e}
+Für den Fall ohne Korrelation ergibt sich
+mit Gleichungen \ref{eqn:unkorr} und \ref{eqn:f}
+\\
+\begin{align*}
+  y(-3) &= \SI{-2.0}{}\\
+  \sigma_{y}(-3) &= \pm 0.6\\
+  y(0) &= \SI{1.0}{}  \\
+  \sigma_{y}(0) &= \pm0.2\\
+  y(3) &= \SI{4.0}{} \\
+  \sigma_{y}(3) &= \pm0.6
+\end{align*}
+Für den Fall mit Korrelation ergibt sich mit
+Gleichung \ref{eqn:korr} \ref{eqn:f}
+\\
+\begin{align*}
+  y(-3) &= \SI{-2.0}{}\\
+  \sigma_{y}(-3) &= \pm0.8\\
+  y(0) &= \SI{1.0}{}  \\
+  \sigma_{y}(0) &= \pm0.2\\
+  y(3) &= \SI{4.0}{} \\
+  \sigma_{y}(3) &= \pm0.5
+\end{align*}
