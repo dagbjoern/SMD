@@ -6,7 +6,7 @@ from uncertainties.unumpy import (nominal_values as noms,
 import scipy.constants as con
 
 def sigma_y(x,a_0,fa_0,a_1,fa_1,p):
-    oy=np.sqrt(fa_0**2+(x*fa_1)**2+2)+2*(1*x*p*fa_0*fa_1)
+    oy=np.sqrt(fa_0**2+(x*fa_1)**2+2*(1*x*p*fa_0*fa_1))
     return oy
 
 def gaus_sigma_y(x,a_0,fa_0,a_1,fa_1):
@@ -24,7 +24,7 @@ def aufgabe_1():
     a_1=1.0 #wert von a_1
     fa_1=0.2 #fehler  a_1
     p=-0.8  #Korrelationskoeffizient
-    x=np.linspace(0,10)
+    x=np.array([-3,0,3])
     print('Werte von y ohne kor:',unp.uarray([y(x,a_0,a_1)],[gaus_sigma_y(x,a_0,fa_0,a_1,fa_1)]))
     print('Werte von y mit kor:',unp.uarray([y(x,a_0,a_1)],[sigma_y(x,a_0,fa_0,a_1,fa_1,p)]))
 
