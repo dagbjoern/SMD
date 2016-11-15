@@ -2,7 +2,7 @@ import numpy as np
 from matplotlib import pyplot as plt
 import numpy.random as nr
 from mpl_toolkits.mplot3d import Axes3D
-import ROOT
+#import ROOT
 import os
 if not os.path.exists("./build"):
     os.makedirs("./build")
@@ -98,7 +98,6 @@ plt.savefig("plot4.pdf")
 
 #ausgeben
 #print(test)
->>>>>>> bestimmt ein merge Konflikt
 
 #print(c2D(4,10))
 x,y =c2D(4,10000)

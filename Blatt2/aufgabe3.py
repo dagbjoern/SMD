@@ -44,7 +44,7 @@ plt.savefig('Potenzgesetz.pdf')
 
 
 plt.figure(4)
-plt.hist(CauchyVerteilung(1500),bins=8000)  # r=10000
+plt.hist(CauchyVerteilung(1500),bins=10000)  # r=10000
 plt.axis([-4.5, 4.5, 0 ,200])
 plt.savefig('CauchyVerteilung.pdf')
 
