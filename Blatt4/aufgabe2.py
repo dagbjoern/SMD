@@ -4,9 +4,6 @@ import numpy.random as nr
 from mpl_toolkits.mplot3d import Axes3D
 import ROOT
 import root_numpy
-import os
-if not os.path.exists("./build"):
-    os.makedirs("./build")
 
 
 root_file = ROOT.TFile("zwei_populationen.root", "READ")
@@ -27,11 +24,11 @@ x=np.linspace(-15,20)
 plt.figure(1)
 plt.plot(P_0['x'],P_0['y'],'.m',markersize=0.75,alpha=0.3)
 plt.plot(P_1['x'],P_1['y'],'.c',markersize=0.75,alpha=0.3)
-plt.plot(-15,-25,'.m',alpha=0.3,label=r'P_0')
-plt.plot(-15,-25,'.c',alpha=0.3,label=r'P_1')
-plt.plot(x,0*x,'-r',label=r'g_1(x)')
-plt.plot(x,-(3/4)*x,'-b',label=r'g_2(x)')
-plt.plot(x,-(5/4)*x,'-g',label=r'g_3(x)')
+plt.plot(-15,-25,'.m',alpha=0.3,label=r'$P0$')
+plt.plot(-15,-25,'.c',alpha=0.3,label=r'$P1$')
+plt.plot(x,0*x,'-r',label=r'$g_1(x)$')
+plt.plot(x,-(3/4)*x,'-b',label=r'$g_2(x)$')
+plt.plot(x,-(5/4)*x,'-g',label=r'$g_3(x)$')
 plt.legend(loc='best')
 plt.savefig('scatterplot2D.pdf')
 a=0
@@ -57,8 +54,8 @@ for count, element in enumerate(P_1):
 
 
 plt.figure(2)
-plt.hist(Projektion_P_0_g1,color='m',alpha=0.3,label=r'P_0')
-plt.hist(Projektion_P_1_g1,color='c',alpha=0.3,label=r'P_1')
+plt.hist(Projektion_P_0_g1,color='m',alpha=0.3,label=r'$P0$')
+plt.hist(Projektion_P_1_g1,color='c',alpha=0.3,label=r'$P1$')
 plt.legend(loc='best')
 plt.savefig('g_1.pdf')
 
@@ -83,8 +80,8 @@ for count, element in enumerate(P_1):
 
 
 plt.figure(3)
-plt.hist(Projektion_P_0_g2,color='m',alpha=0.3,label=r'P_0')
-plt.hist(Projektion_P_1_g2,color='c',alpha=0.3,label=r'P_1')
+plt.hist(Projektion_P_0_g2,color='m',alpha=0.3,label=r'$P0$')
+plt.hist(Projektion_P_1_g2,color='c',alpha=0.3,label=r'$P1$')
 plt.legend(loc='best')
 plt.savefig('g_2.pdf')
 
@@ -112,8 +109,8 @@ for count, element in enumerate(P_1):
 
 
 plt.figure(4)
-plt.hist(Projektion_P_0_g3,color='m',alpha=0.3,label=r'P_0')
-plt.hist(Projektion_P_1_g3,color='c',alpha=0.3,label=r'P_1')
+plt.hist(Projektion_P_0_g3,color='m',alpha=0.3,label=r'$P0$')
+plt.hist(Projektion_P_1_g3,color='c',alpha=0.3,label=r'$P1$')
 plt.legend(loc='best')
 plt.savefig('g_3.pdf')
 
@@ -158,10 +155,10 @@ for i, cut in enumerate(lambda_cut):
     y_rein[i]=Reinheit(cut,Projektion_P_0_g1,Projektion_P_1_g1)
 
 plt.figure(5)
-plt.plot(lambda_cut,y_eff,'r',label=r'Effizienz von g_1')
-plt.plot(lambda_cut,y_rein,'b',label=r'Reinheit von g_1')
+plt.plot(lambda_cut,y_eff,'r',label=r'Effizienz von $g_1$')
+plt.plot(lambda_cut,y_rein,'b',label=r'Reinheit von $g_1$')
 plt.legend(loc='best')
-plt.xlabel(r'\lambda_cut')
+plt.xlabel(r'$\lambda_\mathrm{cut}$')
 plt.savefig('g_1Effizienz.pdf')
 
 #g_2
@@ -173,9 +170,9 @@ for i, cut in enumerate(lambda_cut):
     y_rein[i]=Reinheit(cut,Projektion_P_0_g2,Projektion_P_1_g2)
 
 plt.figure(6)
-plt.plot(lambda_cut,y_eff,'r',label=r'Effizienz von g_2')
-plt.plot(lambda_cut,y_rein,'b',label=r'Reinheit von g_2')
-plt.xlabel(r'\lambda_cut')
+plt.plot(lambda_cut,y_eff,'r',label=r'Effizienz von $g_2$')
+plt.plot(lambda_cut,y_rein,'b',label=r'Reinheit von $g_2$')
+plt.xlabel(r'$\lambda_\mathrm{cut}$')
 plt.legend(loc='best')
 plt.savefig('g_2Effizienz.pdf')
 
@@ -190,8 +187,8 @@ for i, cut in enumerate(lambda_cut):
     y_rein[i]=Reinheit(cut,Projektion_P_0_g3,Projektion_P_1_g3)
 
 plt.figure(7)
-plt.plot(lambda_cut,y_eff,'r',label=r'Effizienz von g_3')
-plt.plot(lambda_cut,y_rein,'b',label=r'Reinheit von g_3')
+plt.plot(lambda_cut,y_eff,'r',label=r'Effizienz von $g_3$')
+plt.plot(lambda_cut,y_rein,'b',label=r'Reinheit von $g_3$')
 plt.legend(loc='best')
-plt.xlabel(r'\lambda_cut')
+plt.xlabel(r'$\lambda_\mathrm{cut}$')
 plt.savefig('g_3Effizienz.pdf')
