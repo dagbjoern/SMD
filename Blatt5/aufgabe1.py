@@ -57,17 +57,18 @@ print('S_B=',S_B)
 
 
 inv_S_P0P1=np.linalg.inv(S_P0P1)
+print('inverse',inv_S_P0P1)
 #Matrix für das eigenwertproblem A=S_W^(-1)S_B
 A=np.dot(inv_S_P0P1,S_B)
-
+print('A',A)
 w , v =np.linalg.eig(A)  # w= Eigenwerte , v= Eigenvektoren
 print('Eigenwerte',w)
 print('Eigenvektoren',v)
 v=v.T
 print('probe w=1:',np.dot(A-np.diag([w[1],w[1]]),v[1]))
 
-
-#print('länge v',np.sqrt(v[1][0]**2+v[1][1]**2))
+print('probe.',np.dot(v[0],v[1]))
+print('länge v',np.sqrt(v[1][0]**2+v[1][1]**2))
 
 
 #lambda'
@@ -119,14 +120,15 @@ def Reinheit(cut,signal,stoerung):
     return t_p/(t_p+f_p)
 
 def Signal_zu_Untergrund(cut,signal,stoerung):
+#    print(cut)
     t_p=np.count_nonzero(cut<=signal)
-    print('t_p',t_p)
+#    print('t_p',t_p)
     f_p=np.count_nonzero(cut<=stoerung)
-    print('f_p',t_p)
+#    print('f_p',f_p)
     t_n=np.count_nonzero(cut>=stoerung)
-    print('t_n',t_n)
+#    print('t_n',t_n)
     f_n=np.count_nonzero(cut>=signal)
-    print('f_n',f_n)
+#    print('f_n',f_n)
     return((t_p+f_p)/(f_n+t_n))
 
 
