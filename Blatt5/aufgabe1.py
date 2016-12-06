@@ -120,7 +120,6 @@ def Reinheit(cut,signal,stoerung):
     return t_p/(t_p+f_p)
 
 def Signal_zu_Untergrund(cut,signal,stoerung):
-#    print(cut)
     t_p=np.count_nonzero(cut<=signal)
 #    print('t_p',t_p)
     f_p=np.count_nonzero(cut<=stoerung)
@@ -129,19 +128,25 @@ def Signal_zu_Untergrund(cut,signal,stoerung):
 #    print('t_n',t_n)
     f_n=np.count_nonzero(cut>=signal)
 #    print('f_n',f_n)
-    return((t_p+f_p)/(f_n+t_n))
+    return(t_p/f_p)
 
-
+def Signifikanz(cut,signal,stoerung):
+    t_p=np.count_nonzero(cut<=signal)
+    f_p=np.count_nonzero(cut<=stoerung)
+    return(t_p/np.sqrt(t_p+f_p))
 
 lambda_cut=np.linspace(np.amin(Projektion_P_1),np.amax(Projektion_P_0))
 y_eff=np.array(lambda_cut)
 y_rein=np.array(lambda_cut)
 y_verhaeltnis=np.array(lambda_cut)
+y_sig=np.array(lambda_cut)
 
 for i, cut in enumerate(lambda_cut):
     y_eff[i]=Effizienz(cut,Projektion_P_0)
     y_rein[i]=Reinheit(cut,Projektion_P_0,Projektion_P_1)
-    y_verhaeltnis[i]=Signal_zu_Untergrund(cut,Projektion_P_0,Projektion_P_1)
+    y_sig[i]=Signifikanz(cut,Projektion_P_0,Projektion_P_1)
+
+print('Maximum Signifikanz',lambda_cut[np.where(y_sig==np.amax(y_sig))])
 
 
 plt.figure(2)
@@ -152,12 +157,23 @@ plt.legend(loc='best')
 plt.savefig('Eff_Rein.pdf')
 
 
+plt.figure(4)
+plt.plot(lambda_cut,y_sig,'r',label=r'Signifikanz')
+plt.xlabel(r'$\lambda_\mathrm{cut}$')
+plt.legend(loc='best')
+plt.savefig('Signifikanz.pdf')
+
+lambda_cut=np.linspace(np.amin(Projektion_P_1),np.amax(Projektion_P_1))
+for i, cut in enumerate(lambda_cut):
+    y_verhaeltnis[i]=Signal_zu_Untergrund(cut,Projektion_P_0,Projektion_P_1)
+
+print('Maximum verhältis S/B',lambda_cut[np.where(y_verhaeltnis==np.amax(y_verhaeltnis))])
+
 plt.figure(3)
 plt.plot(lambda_cut,y_verhaeltnis,'m',label=r'Signal-zu-Untergrundverhältnis S/B')
 plt.xlabel(r'$\lambda_\mathrm{cut}$')
 plt.legend(loc='best')
 plt.savefig('verhaeltnis.pdf')
-
 
 
 
@@ -177,7 +193,7 @@ for count, element in enumerate(P_0):
    Projektion_P_0[count]=np.dot(-v[0],x)
 
 
-plt.figure(1)
+plt.figure(11)
 plt.hist(Projektion_P_0,color='m',alpha=0.3,label=r'$P0$')
 plt.hist(Projektion_P_1,color='c',alpha=0.3,label=r'$P1$')
 plt.legend(loc='best')
@@ -188,13 +204,37 @@ plt.savefig('Projektion_h).pdf')
 lambda_cut=np.linspace(np.amin(Projektion_P_1),np.amax(Projektion_P_0))
 y_eff=np.array(lambda_cut)
 y_rein=np.array(lambda_cut)
+y_sig=np.array(lambda_cut)
 for i, cut in enumerate(lambda_cut):
     y_eff[i]=Effizienz(cut,Projektion_P_0)
     y_rein[i]=Reinheit(cut,Projektion_P_0,Projektion_P_1)
+    y_sig[i]=Signifikanz(cut,Projektion_P_0,Projektion_P_1)
 
-plt.figure(3)
+print('Maximum Signifikanz',lambda_cut[np.where(y_sig==np.amax(y_sig))])
+
+plt.figure(5)
 plt.plot(lambda_cut,y_eff,'r',label=r'Effizienz von $\lambda_{cut}$')
 plt.plot(lambda_cut,y_rein,'b',label=r'Reinheit von $\lambda_{cut}$')
 plt.xlabel(r'$\lambda_\mathrm{cut}$')
 plt.legend(loc='best')
 plt.savefig('Eff_Rein_h).pdf')
+
+plt.figure(7)
+plt.plot(lambda_cut,y_sig,'r',label=r'Signifikanz')
+plt.xlabel(r'$\lambda_\mathrm{cut}$')
+plt.legend(loc='best')
+plt.savefig('Signifikanz_h).pdf')
+
+
+lambda_cut=np.linspace(np.amin(Projektion_P_1),np.amax(Projektion_P_1))
+
+for i, cut in enumerate(lambda_cut):
+    y_verhaeltnis[i]=Signal_zu_Untergrund(cut,Projektion_P_0,Projektion_P_1)
+
+print('Maximum verhältis S/B',lambda_cut[np.where(y_verhaeltnis==np.amax(y_verhaeltnis))])
+
+plt.figure(8)
+plt.plot(lambda_cut,y_verhaeltnis,'m',label=r'Signal-zu-Untergrundverhältnis S/B')
+plt.xlabel(r'$\lambda_\mathrm{cut}$')
+plt.legend(loc='best')
+plt.savefig('verhaeltnis_h).pdf')

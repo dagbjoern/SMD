@@ -98,7 +98,10 @@ A\approx&
 \subsection{d)}
 \label{subsec:a1d}
 Nun kann mit Hilfe des Projektionsvektors
-ein eindimensionales Histogramm der Populationen \ref{fig:hist} berechnete werden.
+$-v_{\lambda_1}$
+ein eindimensionales Histogramm der Populationen
+\ref{fig:hist} berechnete werden. Das Minus dreht die Orientierung so, dass
+$P0$ rechts von $P1$ liegt.
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{Projektion.pdf}
@@ -114,23 +117,97 @@ ein eindimensionales Histogramm der Populationen \ref{fig:hist} berechnete werde
 Betrachtet man nun $P0$ als Signal und $P1$ als Untergrund kann die
 Effizienz und Reinheit des Signals als Funktion eines Schnitts
 $\lambda_\mathrm{cut}$ aufgetragen werden.
-Der folgende Potts \ref{fig:cut}
-dargestellt.
+Die folgende Abbildung \ref{fig:eff} enthält die Effizienz und
+Reinheit in Abhängigkeit von $\lambda_{cut}$.
 
 \begin{figure}
   \centering
   \includegraphics[width=0.7\textwidth]{Eff_Rein.pdf}
   \caption{Effizienz und Reinheit des Schnittes ausgehend von der Gerade $\vec \lambda$ in Abhängigkeit von $\lambda_\text{cut}$ .}
-  \label{fig:cut1}
+  \label{fig:eff}
 \end{figure}
 
 \FloatBarrier
 
 \subsection{f)}
 \label{subsec:a1f}
+In der Abbildung \ref{fig:ver} ist das Signal-zu-Untergrundverhältnis$(t_p/f_p)$
+in Abhängigkeit von dem Schnittes $\lambda_{cut}$ aufgetragen.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{verhaeltnis.pdf}
+  \caption{Das Signal-zu-Untergrundverhältnis in Abhängigkeit von $\lambda_\text{cut}$ .}
+  \label{fig:ver}
+\end{figure}
+Bei
+\begin{align}
+  \lambda_{cut}\approx2,2
+\end{align}
+wird das Signal-zu-Untergrundverhältis maximal.
 
 \subsection{g)}
 \label{subsec:a1g}
+Ebenfalls kann die Signifikanz $t_p/\sqrt{t_p+f_p}$
+in Abhängigkeit von dem Schnittes $\lambda_{cut}$ aufgetragen werden \ref{fig:sig}.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{Signifikanz.pdf}
+  \caption{Die Signifikanz in Abhängigkeit von $\lambda_\text{cut}$ .}
+  \label{fig:sig}
+\end{figure}
+Diese besitzt bei
+\begin{align}
+  \lambda_{cut}\approx0.58
+\end{align}
+ein Maximum.
+
+\FloatBarrier
 
 \subsection{h)}
 \label{subsec:a1h}
+Die Schritte $e)$ bis $g)$ werden nun für den Fall, dass P0 nun die Population
+P\_0\_1000 bezeichnet wieder holt. Es ergibt sich die Projektion \ref{fig:proh}.
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{Projektion_h).pdf}
+  \caption{Histogramm der Projektion
+   von den Populationen
+   $P0$ und $P1$ auf die Projektionsgeraden $\vec\lambda$.}
+  \label{fig:proh}
+\end{figure}
+
+Wieder kann die Effizienz und Reinheit berechnet werden \ref{fig:effrein},
+
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{Eff_Rein_h).pdf}
+  \caption{Effizienz und Reinheit des Schnittes ausgehend von der Gerade $\vec \lambda$ in Abhängigkeit von $\lambda_\text{cut}$ .}
+  \label{fig:effrein}
+\end{figure}
+
+
+so wie das Signal-zu-Untergrundverhältnis \ref{fig:verh},
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{verhaeltnis_h).pdf}
+  \caption{Das Signal-zu-Untergrundverhältnis in Abhängigkeit von $\lambda_\text{cut}$ .}
+  \label{fig:verh}
+\end{figure}
+dass bei
+\begin{align}
+  \lambda_{cut}\approx2,2
+\end{align}
+ein Maximum besitzt.
+Die Signifikanz, die in der Abbildung \ref{fig:sigh} dagestellt ist, wird bei
+\begin{align}
+  \lambda_{cut}\approx1,1
+\end{align}
+maximal.
+\begin{figure}
+  \centering
+  \includegraphics[width=0.7\textwidth]{Signifikanz_h).pdf}
+  \caption{Die Signifikanz in Abhängigkeit von $\lambda_\text{cut}$ .}
+  \label{fig:sigh}
+\end{figure}
