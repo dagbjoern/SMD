@@ -6,86 +6,86 @@ import ROOT
 import root_numpy
 
 
-#root_file = ROOT.TFile("zwei_populationen.root", "READ")
+root_file = ROOT.TFile("zwei_populationen.root", "READ")
+
+P_0=root_file.Get("P_0_10000")
+P_1=root_file.Get("P_1")
+
+
+P_0 = root_numpy.root2array("zwei_populationen.root", "P_0_10000")
+P_1 = root_numpy.root2array("zwei_populationen.root", "P_1")
+
+print(P_0.dtype.names)
 #
-#P_0=root_file.Get("P_0_10000")
-#P_1=root_file.Get("P_1")
-#
-#
-#P_0 = root_numpy.root2array("zwei_populationen.root", "P_0_10000")
-#P_1 = root_numpy.root2array("zwei_populationen.root", "P_1")
-#
-#print(P_0.dtype.names)
-##
-## print(P_0['x'])
-## print(P_0['y'])
-## print(P_0)
-#x=np.linspace(-15,20)
-#plt.figure(1)
-#plt.plot(P_0['x'],P_0['y'],'.m',markersize=0.75,alpha=0.3)
-#plt.plot(P_1['x'],P_1['y'],'.c',markersize=0.75,alpha=0.3)
-#plt.plot(-15,-25,'.m',alpha=0.3,label=r'$P0$')
-#plt.plot(-15,-25,'.c',alpha=0.3,label=r'$P1$')
-#plt.plot(x,0*x,'-r',label=r'$g_1(x)$')
-#plt.plot(x,-(3/4)*x,'-b',label=r'$g_2(x)$')
-#plt.plot(x,-(5/4)*x,'-g',label=r'$g_3(x)$')
-#plt.legend(loc='best')
-#plt.savefig('scatterplot2D.pdf')
-#a=0
-#
-#
-##Für G_1(x)
-#
-#Projektion_P_0_g1=np.zeros(P_0.shape[0])
-#Projektion_P_1_g1=np.zeros(P_1.shape[0])
-#
-##Projektions Vektor
-#g_1=np.array([-1,0])
-#
-#
-#for count, element in enumerate(P_0):
-#   x=np.array([element[0],element[1]])
-#   Projektion_P_0_g1[count]=np.dot(g_1,x)
-#
-#
-#for count, element in enumerate(P_1):
-#   x=np.array([element[0],element[1]])
-#   Projektion_P_1_g1[count]=np.dot(g_1,x)
-#
-#
-#plt.figure(2)
-#plt.hist(Projektion_P_0_g1,color='m',alpha=0.3,label=r'$P0$')
-#plt.hist(Projektion_P_1_g1,color='c',alpha=0.3,label=r'$P1$')
-#plt.legend(loc='best')
-#plt.savefig('g_1.pdf')
-#
-#
-##Für G_2(x)
-#
-#Projektion_P_0_g2=np.zeros(P_0.shape[0])
-#Projektion_P_1_g2=np.zeros(P_1.shape[0])
-#
-##Projektions Vektor
-#g_2=np.array([-4/5,6/10])
-#
-#
-#for count, element in enumerate(P_0):
-#   x=np.array([element[0],element[1]])
-#   Projektion_P_0_g2[count]=np.dot(g_2,x)
-#
-#
-#for count, element in enumerate(P_1):
-#   x=np.array([element[0],element[1]])
-#   Projektion_P_1_g2[count]=np.dot(g_2,x)
-#
-#
-#plt.figure(3)
-#plt.hist(Projektion_P_0_g2,color='m',alpha=0.3,label=r'$P0$')
-#plt.hist(Projektion_P_1_g2,color='c',alpha=0.3,label=r'$P1$')
-#plt.legend(loc='best')
-#plt.savefig('g_2.pdf')
-#
-#
+# print(P_0['x'])
+# print(P_0['y'])
+# print(P_0)
+x=np.linspace(-15,20)
+plt.figure(1)
+plt.plot(P_0['x'],P_0['y'],'.m',markersize=0.75,alpha=0.3)
+plt.plot(P_1['x'],P_1['y'],'.c',markersize=0.75,alpha=0.3)
+plt.plot(-15,-25,'.m',alpha=0.3,label=r'$P0$')
+plt.plot(-15,-25,'.c',alpha=0.3,label=r'$P1$')
+plt.plot(x,0*x,'-r',label=r'$g_1(x)$')
+plt.plot(x,-(3/4)*x,'-b',label=r'$g_2(x)$')
+plt.plot(x,-(5/4)*x,'-g',label=r'$g_3(x)$')
+plt.legend(loc='best')
+plt.savefig('scatterplot2D.pdf')
+a=0
+
+
+#Für G_1(x)
+
+Projektion_P_0_g1=np.zeros(P_0.shape[0])
+Projektion_P_1_g1=np.zeros(P_1.shape[0])
+
+#Projektions Vektor
+g_1=np.array([-1,0])
+
+
+for count, element in enumerate(P_0):
+  x=np.array([element[0],element[1]])
+  Projektion_P_0_g1[count]=np.dot(g_1,x)
+
+
+for count, element in enumerate(P_1):
+  x=np.array([element[0],element[1]])
+  Projektion_P_1_g1[count]=np.dot(g_1,x)
+
+
+plt.figure(2)
+plt.hist(Projektion_P_0_g1,color='m',alpha=0.3,label=r'$P0$')
+plt.hist(Projektion_P_1_g1,color='c',alpha=0.3,label=r'$P1$')
+plt.legend(loc='best')
+plt.savefig('g_1.pdf')
+
+
+#Für G_2(x)
+
+Projektion_P_0_g2=np.zeros(P_0.shape[0])
+Projektion_P_1_g2=np.zeros(P_1.shape[0])
+
+#Projektions Vektor
+g_2=np.array([-4/5,6/10])
+
+
+for count, element in enumerate(P_0):
+  x=np.array([element[0],element[1]])
+  Projektion_P_0_g2[count]=np.dot(g_2,x)
+
+
+for count, element in enumerate(P_1):
+  x=np.array([element[0],element[1]])
+  Projektion_P_1_g2[count]=np.dot(g_2,x)
+
+
+plt.figure(3)
+plt.hist(Projektion_P_0_g2,color='m',alpha=0.3,label=r'$P0$')
+plt.hist(Projektion_P_1_g2,color='c',alpha=0.3,label=r'$P1$')
+plt.legend(loc='best')
+plt.savefig('g_2.pdf')
+
+
 
 
 #Für G_3(x)
