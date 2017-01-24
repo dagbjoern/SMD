@@ -9,6 +9,7 @@ def D(N_on,N_off,alpha):
     s=N_on-alpha*N_off
     b=N_off
     Lam=np.exp(N_off*np.log(b_0/b)+N_on*np.log(alpha*b_0/(s+alpha*b))-(1+alpha)*(b_0-b)+s)
+    print(Lam)
     D=-np.log(Lam)
     return D
 
@@ -22,6 +23,7 @@ a_1=0.6
 N_on_2=150
 N_off_2=320
 a_2=0.3
+
 
 
 print('D1',D(N_on_1,N_off_1,a_1))

@@ -3,18 +3,59 @@
 
 \subsection{a)}
 \label{sec:A1a}
+
 \begin{align}
-  \text{Nullhyphothese:} s_0=0
-  \text{Maximum bestimmen von $\ln L $:}
-  0&=\frac{\diff}{\diff b}(\ln L)\\
-  0&=\frac{N_\text{off}{b}+\frac{N_\text{on}{b}+(1+\alphy)
+  \intertext{Nullhyphothese:} s_0=0\\
+  \intertext{Maximum bestimmen von  $ \ln L $ :}
+  0=\frac{ \partial }{ \partial b}(\ln L)\\
+  0&=\frac{N_\text{off}}{b_0}+\frac{N_\text{on}}{b_0}+(1+\alpha)\\
+  b_0&=\frac{N_\text{off}+N_\text{on}}{1+\alpha}
+   \intertext{Fehler für den Parameter $b_0$:}
+  G_{11}&=\frac{\partial (-\ln L)}{\partial s \partial s}=0\\
+  G_{12}&=\frac{\partial (-\ln L)}{\partial s \partial b}=0\\
+  G_{21}&=\frac{\partial (-\ln L)}{\partial b \partial s}=0\\
+  G_{22}&=\frac{\partial (-\ln L)}{\partial b \partial b}=
+ \frac{N_\text{off}+N_\text{on}}{b_0^2}\\
+\Rightarrow G&=
+\begin{pmatrix}
+0 & 0 \\
+0 & \frac{(1+\alpha)^2}{N_\text{off}+N_\text{on}}  \\
+\end{pmatrix}\\
+V&=G^{-1} \\
+\Rightarrow \sigma_{b_0}^2&=\frac{N_\text{off}+N_\text{on}}{(1+\alpha)^2}\\
+\sigma_{b_0}&=\frac{\sqrt{N_\text{off}+N_\text{on}}}{(1+\alpha)}
 \end{align}
+
 \subsection{b)}
-Das vorgehen ist identisch zu \ref{sec:A2a} nur
-das diesmal eine Hypothese B mit einem Wert von $30,7$
-benutzt wird.
-Für $\chi$ ergibt sich aus \eqref{eqn:chi}:
+Nun wird das Verhältnis $\lambda$ der beiden Likelihoods bestimmt.
+
 \begin{align}
-  \chi=??
+  \lambda&=\frac{L(s=0,b_0)}{L(\hat s,\hat b)}\\
+  \lambda&=\symup{e}^{N_\text{off}\ln\left(\frac{b_0}{\hat b}\right)
+  +N_\text{on}\ln\left(\frac{\alpha b_0}{\hat s+\alpha \hat b}\right)
+  -(1+\alpha)(b_0-\hat b)+\hat s}\\
+\intertext{mit}
+b_0&=\frac{N_\text{off}+N_\text{on}}{1+\alpha},\quad
+\hat s= N_\text{on}-\alpha N_\text{off},\quad
+\hat b= N_\text{off}
 \end{align}
-Da \chi kleiner/ größer ist wird die Hypothese B nicht verworfen.
+
+\subsection{c)}
+Für größe $N_\text{on},N_\text{off}$ ist $ D= -\ln \lambda$
+$\chi^2$-verteilt mit einem Freiheitsgrad.
+Folglich kann aus der ersten Zeile aus der Tabelle auf
+der Seite $83$ aus dem
+Vorlesungskapitel Testen die Konfidenz ablesen
+werden
+mit der die Nullhypothese in Einheiten von $\sigma$.
+abgelehnt werden kann.
+\subsection{d)}
+Für die gegebenen Werte ergibt sich für
+\begin{align}
+D_1= 1,69
+\intertext{und für }
+D_2= 9,58.
+\end{align}
+Folglich beträgt die Signifikanz der
+Nullhypothese bei der ersten Messung ungefähr $20\%$
+ und bei der zweiten Messung ungefähr $1\%$
