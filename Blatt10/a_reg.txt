@@ -1,0 +1,14 @@
+\begin{table}
+  \centering
+  \begin{tabular}{c c c c c c c c}
+\toprule
+\lambda & a1 & a2 & a3 & a4 & a5 &a6 & a7 \\
+\midrule
+0,3 & 5,3\cdot10^{-02} 2,6\cdot10^{-01} -1,9\cdot10^{-01}  7,7\cdot10^{-02} -1,7\cdot10^{-02} 1,9\cdot10^{-03} -8,1\cdot10^{-05}
+& 1,1\cdot10^{-01} 1,1\cdot10^{-01} -6,4\cdot10^{-02}  2,5\cdot10^{-02} -6,3\cdot10^{-03} 7,9\cdot10^{-04} -3,6\cdot10^{-05}
+& 1,4\cdot10^{-01} 4,4\cdot10^{-02} -1,7\cdot10^{-02}  6,5\cdot10^{-03} -2,4\cdot10^{-03} 3,6\cdot10^{-04} -1,8\cdot10^{-05}
+& 1,7\cdot10^{-01} 8,0\cdot10^{-03} -1,1\cdot10^{-03} -1,1\cdot10^{-04} -4,9\cdot10^{-04} 1,1\cdot10^{-04} -6,0\cdot10^{-06}
+& 1,7\cdot10^{-01} 2,1\cdot10^{-03} -2,1\cdot10^{-03} -1,9\cdot10^{-04} -1,4\cdot10^{-04} 3,9\cdot10^{-05} -2,3\cdot10^{-06}
+  \bottomrule
+  \end{tabular}
+\end{table}
