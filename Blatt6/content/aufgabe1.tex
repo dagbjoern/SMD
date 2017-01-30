@@ -1,213 +1,64 @@
-\newpage
 \section{Aufgabe 1}
 \label{sec:a1}
 
 \subsection{a)}
 \label{subsec:a1a}
-Zunächst wird für beide Populationen der Mittelwert berechnet.
-\begin{align}
-\mu_{P0}\approx
-\begin{pmatrix*}[r]
-   0,022\\
-   3,026
-\end{pmatrix*}\\
-\mu_{P1}\approx
-\begin{pmatrix*}[r]
-   5,986\\
-   3,026
-\end{pmatrix*}
-\end{align}
+Haben die Attribute stark verschiedene Größenordnungen,
+ist es sehr wichtig die Attribute zu normieren. So wird vermieden
+,dass Attribute, die eine vergleichsweise größere Größenordnung
+haben, stärker berücksichtigt werden als andere. Dies würde
+ohne Normierung passieren, da Abstände gebildet werden.
 
 \subsection{b)}
 \label{subsec:a1b}
-Die Kovantianzmatrix $S_{P0}$ und $S_{P1}$ berechnen sich über
-\begin{align}
-S_j=\sum_i^{n_j}(\vec x- \vec \mu_j)(\vec x- \vec \mu_j)^T
-\intertext{zu}
-S_{P0}\approx
-\begin{pmatrix*}[r]
-     122904 &  81979\\
-     81979  &  67449
-\end{pmatrix*}
-\intertext{und}
-S_{P1}\approx
-\begin{pmatrix*}[r]
-    122344 &  73118\\
-     73118 &   53845
-\end{pmatrix*}
-\intertext{Aus $S_{P0P1}=S_{P0}+S_{P1}$ folgt}
-S_{P0P1}\approx
-\begin{pmatrix*}[r]
- 245248  & 155097\\
- 155097  & 121294
-\end{pmatrix*}
-\intertext{Desweiteren muss noch $S_B$ über}
-S_B=(\vec \mu_1-\vec \mu_2)(\vec \mu_1-\vec \mu_2)^T
-\intertext{berechnet werden.}
-\Rightarrow S_B\approx
-\begin{pmatrix*}[r]
- 35.562 &   0.432\\
- 0.432  & 0.005
-\end{pmatrix*}
-\end{align}
+Der \textbf{k-NN-Algorithmus} speichert beim Lernen
+einfach die Abständsvektoren der Trainingsdaten ab. Da
+somit also eigentlich nichts mit den Trainingsdaten passiert
+kann der Algorithmus als \textbf{"lazy-learner"} bezeichnet
+werden. Somit sind beschränkt sich die Laufzeit beim Lernen auf
+die Zeit, die benötigt wird um die Trainingsdaten abzuspeichern.
+In der Anwendungsphase müssen jeweils die Abstände der
+zu klassifizierenden Daten zu den Trainingsdaten bestimmt
+werden und anschließend noch sortiert werden.
+Diese Eigenschaften unterscheiden sich stark von anderen
+Algorithmen wie zB. einem \textbf{Random-Forest}, der
+mehr Aufwand in das Lernen steckt und dafür beim klassifizieren
+schneller ist.
+
 
 \subsection{c)}
 \label{subsec:a1c}
+Siehe \textbf{aufgabe1.py}.
 
-Um nun die Fisher-Diskriminate zu berechen, müssen
-die Eigenwerte und Eigenvektoren der Matrix
-\begin{align}
-A=S_{P0P1}^{-1}S_B
-\end{align}
-berechnet werden.
-Die Inverse von $S_{P0P1}$ lautet:
-\begin{align}
-  S_{P0P1}^{-1}\approx&
-  \begin{pmatrix*}[r]
-   0.000021 & -0.000027 \\
-  -0.000027 &  0.000043
-  \end{pmatrix*}
-\intertext{somit folgt für $A$}
-A\approx&
-\begin{pmatrix*}[r]
- 0.000746 &  0.000009 \\
--0.000950 & -0.000012
-\end{pmatrix*}
-\intertext{Die Eigenwerte der Matrix $A$ sind:}
-\lambda_1\approx&0,0007   \qquad \lambda_2\approx0
-\intertext{Die normierten Eigenvektoren sind:}
-\vec v_{\lambda_1}\approx&
-\begin{pmatrix*}[r]
- 0,617\\
- -0,012
-\end{pmatrix*}\\
-\vec v_{\lambda_2}\approx&
-\begin{pmatrix*}[r]
--0,787\\
-1
-\end{pmatrix*}
-\intertext{Als Projektionsvektors wird der
- Eigenvektor zum Eigenwert $\lambda_1$ gewählt.
- Daraus folgt die Geradengleichung:}
-\vec \lambda =\lambda \cdot
-\begin{pmatrix*}[r]
- 0,617\\
- -0,012
-\end{pmatrix*}
-\end{align}
 \subsection{d)}
-\label{subsec:a1d}
-Nun kann mit Hilfe des Projektionsvektors
-$-v_{\lambda_1}$
-ein eindimensionales Histogramm der Populationen
-\ref{fig:hist} berechnete werden. Das Minus dreht die Orientierung so, dass
-$P0$ rechts von $P1$ liegt.
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{Projektion.pdf}
-  \caption{Histogramm der Projektion
-   von den Populationen
-   $P0$ und $P1$ auf die Projektionsgeraden $\vec\lambda$.}
-  \label{fig:hist}
-\end{figure}
-\FloatBarrier
+Für die zu ermittelnden Größen ergeben sich:
+\\
+\begin{align*}
+  \text{Reinheit} &= \SI{0.645}{}\\
+  \text{Effizienz} &= \SI{0.942}{}\\
+  \text{Signifikanz} &= \SI{0.314}{}\\
+\end{align*}
 
 \subsection{e)}
-\label{subsec:a1e}
-Betrachtet man nun $P0$ als Signal und $P1$ als Untergrund kann die
-Effizienz und Reinheit des Signals als Funktion eines Schnitts
-$\lambda_\mathrm{cut}$ aufgetragen werden.
-Die folgende Abbildung \ref{fig:eff} enthält die Effizienz und
-Reinheit in Abhängigkeit von $\lambda_{cut}$.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{Eff_Rein.pdf}
-  \caption{Effizienz und Reinheit des Schnittes ausgehend von der Gerade $\vec \lambda$ in Abhängigkeit von $\lambda_\text{cut}$ .}
-  \label{fig:eff}
-\end{figure}
-
-\FloatBarrier
-
+Nach Logarithmieren der Hits ergibt sich:
+\\
+\begin{align*}
+  \text{Reinheit} &= \SI{0.645}{}\\
+  \text{Effizienz} &= \SI{0.942}{}\\
+  \text{Signifikanz} &= \SI{0.314}{}\\
+\end{align*}
+Das Ergebnis verändert sich nicht.
+Obwohl man hätte erwarten können dass es sich verbessert,
+weil die \textbf{Anzahl Hits} jetzt in die selbe
+Größenordnung fällt wie \textbf{x} und \textbf{y}.
 \subsection{f)}
 \label{subsec:a1f}
-In der Abbildung \ref{fig:ver} ist das Signal-zu-Untergrundverhältnis$(t_p/f_p)$
-in Abhängigkeit von dem Schnittes $\lambda_{cut}$ aufgetragen.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{verhaeltnis.pdf}
-  \caption{Das Signal-zu-Untergrundverhältnis in Abhängigkeit von $\lambda_\text{cut}$ .}
-  \label{fig:ver}
-\end{figure}
-Bei
-\begin{align}
-  \lambda_{cut}\approx2,2
-\end{align}
-wird das Signal-zu-Untergrundverhältis maximal.
-
-\subsection{g)}
-\label{subsec:a1g}
-Ebenfalls kann die Signifikanz $t_p/\sqrt{t_p+f_p}$
-in Abhängigkeit von dem Schnittes $\lambda_{cut}$ aufgetragen werden \ref{fig:sig}.
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{Signifikanz.pdf}
-  \caption{Die Signifikanz in Abhängigkeit von $\lambda_\text{cut}$ .}
-  \label{fig:sig}
-\end{figure}
-Diese besitzt bei
-\begin{align}
-  \lambda_{cut}\approx0.58
-\end{align}
-ein Maximum.
-
-\FloatBarrier
-
-\subsection{h)}
-\label{subsec:a1h}
-Die Schritte $e)$ bis $g)$ werden nun für den Fall, dass P0 nun die Population
-P\_0\_1000 bezeichnet wieder holt. Es ergibt sich die Projektion \ref{fig:proh}.
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{Projektion_h).pdf}
-  \caption{Histogramm der Projektion
-   von den Populationen
-   $P0$ und $P1$ auf die Projektionsgeraden $\vec\lambda$.}
-  \label{fig:proh}
-\end{figure}
-
-Wieder kann die Effizienz und Reinheit berechnet werden \ref{fig:effrein},
-
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{Eff_Rein_h).pdf}
-  \caption{Effizienz und Reinheit des Schnittes ausgehend von der Gerade $\vec \lambda$ in Abhängigkeit von $\lambda_\text{cut}$ .}
-  \label{fig:effrein}
-\end{figure}
-
-
-so wie das Signal-zu-Untergrundverhältnis \ref{fig:verh},
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{verhaeltnis_h).pdf}
-  \caption{Das Signal-zu-Untergrundverhältnis in Abhängigkeit von $\lambda_\text{cut}$ .}
-  \label{fig:verh}
-\end{figure}
-dass bei
-\begin{align}
-  \lambda_{cut}\approx2,2
-\end{align}
-ein Maximum besitzt.
-Die Signifikanz, die in der Abbildung \ref{fig:sigh} dagestellt ist, wird bei
-\begin{align}
-  \lambda_{cut}\approx1,1
-\end{align}
-maximal.
-\begin{figure}
-  \centering
-  \includegraphics[width=0.7\textwidth]{Signifikanz_h).pdf}
-  \caption{Die Signifikanz in Abhängigkeit von $\lambda_\text{cut}$ .}
-  \label{fig:sigh}
-\end{figure}
+Bei Verwendung von $20$ anstatt von $10$ nächsten Nachbarn, ergeben sich:
+\\
+\begin{align*}
+  \text{Reinheit} &= \SI{0.633}{}\\
+  \text{Effizienz} &= \SI{0.899}{}\\
+  \text{Signifikanz} &= \SI{0.300}{}\\
+\end{align*}
+Es ist zu erkennen, dass sich das Ergebnis leicht verschlechtert wenn zu viele
+Nachbarn hinzugezogen werden.
